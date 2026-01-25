@@ -67,7 +67,7 @@ share: true
 		- ただし基本的にはKeyを用意したほうがいい
 		- これがあればSmart Connectionは不要かもしれない
 		- 必須度: A
-	- [GitHub - zolrath/obsidian-auto-link-title: Automatically fetch the titles of pasted links](https://github.com/zolrath/obsidian-auto-link-title
+	- [GitHub - zolrath/obsidian-auto-link-title: Automatically fetch the titles of pasted links](https://github.com/zolrath/obsidian-auto-link-title)
 		- URL貼り付けで情報を取得し適切なタイトルに自動変換
 		- 必須度: B
 	- [GitHub - Enveloppe/obsidian-enveloppe: Enveloppe helps you to publish your notes on a GitHub repository from your Obsidian Vault, for free!](https://github.com/Enveloppe/obsidian-enveloppe)
