@@ -1,0 +1,86 @@
+---
+share: true
+---
+# はじめに
+本ドキュメントは、ObsidianをUbuntu環境上で構築運用することための参照ドキュメントです。
+# 前提情報
+- OS
+	- Ubuntu 24.04
+- Install
+	- .deb
+		- Snap versionはElectronとUbuntu GUI Waylandの相性問題で日本語入力ができないので利用しない。
+- 利用ユーザ数
+	- 1
+- 課金の有無
+	- なし
+- データ同期
+	- ローカルのVaultをGithubでレポ管理。
+	- 作業前のプル及び完了後コミットが必須。
+- その他
+	- notionからの引っ越し先として選定。
+# 利用ユース想定
+- 個人の知識ベースとして利用。
+- 個人のブレインストーミングや新しい発想の場、執筆などに利用を想定。
+- AIと連携し個人の知識ベースとして知識活動のサイクルに組み込む。
+- 論文を読んだ記録の保管庫としても活用。
+# 制限事項
+- ポストの公開は無課金で不可のため、公開のみnotionの利用を検討。
+# Plug-in
+- 利用コミュニティプラグイン
+	- [Github sync](https://github.com/kevinmkchin/Obsidian-GitHub-Sync)
+		- ワンクリックでGithubにコミット
+		- 必須度: A
+	- [obsidian-custom-attachment-location](https://github.com/mnaoumov/obsidian-custom-attachment-location)
+		- 指定の名称でノート内の添付ファイルをディレクトリに保存する。
+		- 例えば、{hoge}.md のノート内の添付ファイル {foo}.jpg が自動で ./{hoge}/{foo}.jpg として保存される。
+		- ファイル変換やリネーム等機能多数あり。
+		- 必須度: A
+	- [obsidian-colored-text](https://github.com/erincayaz/obsidian-colored-text)
+		- 選択範囲に対して右クリックコンテキストメニューでフォントカラーを変更できる。
+		- ただし、単にタグを挿入する機能なので既存で色付けした範囲にさらに色を上書きしようとするとタグが二重になる。
+		- 必須度: C
+	- [Image converter](https://github.com/xRyul/obsidian-image-converter)
+		- 画像を右クリックコンテキストメニューから変換
+		- 必須度: B
+	- [GitHub - SebastianMC/obsidian-custom-sort: Take full control over the order and sorting of folders and notes in File Explorer in Obsidian](https://github.com/SebastianMC/obsidian-custom-sort)
+		- sortspecのルールファイルに沿ってファイルやディレクトリを区別なくソート
+		- ノートとディレクトリを同じ名前で管理している場合、並びになるので参照しやすい
+		- 必須度: B
+	- [GitHub - wenlzhang/obsidian-folder-navigator: An Obsidian plugin that allows you to quickly navigate to folders in your vault using fuzzy search.](https://github.com/wenlzhang/obsidian-folder-navigator)
+		- フォルダー検索
+		- デフォルトの検索はフォルダを名称で検索できないので、フォルダーを探すために利用
+		- リボンではなくコマンドパレットから呼び出し
+		- 必須度: B
+	- [GitHub - scambier/obsidian-omnisearch: A search engine that "just works" for Obsidian. Supports OCR and PDF indexing.](https://github.com/scambier/obsidian-omnisearch)
+		- 高機能検索
+		- 必須度: B
+	- [GitHub - PKM-er/Obsidian-Surfing: An Obsidian plugin that lets you browse the web within Obsidian.](https://github.com/PKM-er/Obsidian-Surfing)
+		- 組み込みWeb viewer
+		- 必須度: B
+	- [GitHub - brianpetro/obsidian-smart-connections: Chat with your notes & see links to related content with AI embeddings. Use local models or 100+ via APIs like Claude, Gemini, ChatGPT & Llama 3](https://github.com/brianpetro/obsidian-smart-connections)
+		- ベクトル埋め込みを実施しノートに対して様々な処理を実施できる高機能プラグイン
+		- 例えば、類似度によるノート一覧やセマンティックサーチなど
+		- 高機能故に重いのでOmniSearchがあれば不要かもしれない
+		- 必須度: B
+	- [GitHub - logancyang/obsidian-copilot: THE Copilot in Obsidian](https://github.com/logancyang/obsidian-copilot)
+		- Vaultをグラウンドデータとしてインタラクションが可能
+		- ただし基本的にはKeyを用意したほうがいい
+		- これがあればSmart Connectionは不要かもしれない
+		- 必須度: A
+	- [GitHub - zolrath/obsidian-auto-link-title: Automatically fetch the titles of pasted links](https://github.com/zolrath/obsidian-auto-link-title
+		- URL貼り付けで情報を取得し適切なタイトルに自動変換
+		- 必須度: B
+	- [GitHub - Enveloppe/obsidian-enveloppe: Enveloppe helps you to publish your notes on a GitHub repository from your Obsidian Vault, for free!](https://github.com/Enveloppe/obsidian-enveloppe)
+		- 指定したGithub repoにノートをアップロードできる
+		- 簡易的に公開するために使える
+		- frontmatter (mdファイルの先頭) に指定のプロパティを記載する必要があり
+		- 必須度: B
+	- [GitHub - glowingjade/obsidian-smart-composer: AI chat assistant for Obsidian with contextual awareness, smart writing assistance, and one-click edits.](https://github.com/glowingjade/obsidian-smart-composer)
+		- Cursor AIやChatGPT Canvasのように、Vault内の文脈を理解したAIアシスタント。
+		- 「Apply Edit」機能により、AIの提案をワンクリックでノートに反映可能。
+		- セマンティック検索（RAG）により、関連するノートを自動で参照。
+		- Googleなどのサブスクリプションベースの認証情報を使うことでAPI Key不要で使えるがCLIを動かしていると思われ、レスポンスが速くない
+		- 必須度: B
+	- [GitHub - gitcpy/obsidian-diagram-popup](https://github.com/gitcpy/obsidian-diagram-popup)
+		- Mermaidなどダイアグラムのプレビューをワンクリックで拡大でき、更に拡大や縮小など可能。
+		- 必須度: A
