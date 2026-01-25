@@ -3,6 +3,7 @@ share: true
 ---
 # はじめに
 本ドキュメントは、ObsidianをUbuntu環境上で構築運用することための参照ドキュメントです。
+![](Obsidian%20Ops%20document/Gemini_Generated_Image_poiz21poiz21poiz.png)
 # 前提情報
 - OS
 	- Ubuntu 24.04
