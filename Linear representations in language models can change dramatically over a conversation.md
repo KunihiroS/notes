@@ -29,6 +29,8 @@ Google DeepMindのLampinen氏らによる、大規模言語モデル（LLM）の
 1.  **表現の動的反転現象**：「反対の日（Opposite Day）」プロンプトや特定のペルソナ（意識を持つAIなど）を演じる会話において、モデル内部で「真実」を表すベクトル方向が180度反転し、嘘が真実として表現される現象が確認された。
 2.  **文脈依存性と頑健性**：この表現の変化は、会話に関連するトピック（例：自身の意識について）では顕著に現れる一方で、文脈と無関係な一般的知識（例：科学的事実）については比較的安定しており、モデルが「役割」に応じて知識へのアクセス方法を動的に再構成していることを示唆する。
 3.  **解釈可能性への課題**：静的なプローブ（探針）を用いてモデルの「信念」や「嘘」を検出しようとする既存の手法は、コンテキストによる表現のシフトを考慮しない場合、誤った解釈や誤作動（意図しない方向へのステアリングなど）を引き起こす重大なリスクがある。
+![](<Linear representations in language models can change dramatically over a conversation/20260210213921_Linear_representations_in_language_models_can_change_dramatically_over_a_conversation.jpg>)
+
 
 # Summary
 本研究は、大規模言語モデル（LLM）の内部表現、特に「真実性（Factuality）」や「倫理性」といった高次概念に対応する線形方向（Linear Directions）が、会話の進行に伴ってどのように変化するかを調査しています。
